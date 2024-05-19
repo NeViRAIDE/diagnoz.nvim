@@ -52,6 +52,8 @@ local function get_inlay_hint_offset(bufnr, lnum, col)
 end
 
 M.setup = function()
+  require('diagnoz.autocommands')
+
   vim.diagnostic.handlers.virtual_lines = {
     show = function(namespace, bufnr, diagnostics, opts)
       if vim.bo[bufnr].filetype == 'lazy' then return end

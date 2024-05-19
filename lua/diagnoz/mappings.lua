@@ -27,6 +27,7 @@ return function(client, bufnr)
           ':lua vim.diagnostic.goto_next({float=false})<cr>',
           'Jump to next diagnostic node',
         },
+        -- TODO: move to debugging module
         d = {
           name = 'DAP',
           b = { ':DapToggleBreakpoint<cr>', 'Toggle breakpoint' },
