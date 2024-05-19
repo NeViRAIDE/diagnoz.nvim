@@ -46,10 +46,11 @@ local function get_inlay_hint_offset(bufnr, lnum, col)
   return offset
 end
 
-M.mappings = function(client, buffer) mappings(client, buffer) end
+-- M.mappings = function(client, buffer) mappings(client, buffer) end
 
-M.setup = function()
+M.setup = function(client, buffer)
   config()
+  mappings(client, buffer)
 
   vim.diagnostic.handlers.virtual_lines = {
     show = function(namespace, bufnr, diagnostics, opts)
