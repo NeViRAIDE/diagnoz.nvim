@@ -1,1 +1,1 @@
-require('diagnostic').setup()
+require('diagnostic')
