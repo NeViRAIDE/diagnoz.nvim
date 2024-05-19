@@ -1,1 +1,1 @@
-require('diagnostic')
+require('diagnoz')

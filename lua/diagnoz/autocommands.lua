@@ -1,8 +1,8 @@
 ---@type NeviraideUtils
 local util = require('neviraide.utils')
 
-local config = require('config')
-local mappings = require('mappings')
+local config = require('diagnoz.config')
+local mappings = require('diagnoz.mappings')
 
 util.autocmd('NeViRAIDE_diagnostics', 'LspAttach', {
   callback = function(args)
