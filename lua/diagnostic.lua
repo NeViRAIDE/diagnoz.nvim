@@ -1,6 +1,3 @@
-local config = require('diagnostic.config')
-local mappings = require('diagnostic.mappings')
-
 local M = {}
 
 local highlight_groups = {
@@ -54,10 +51,7 @@ local function get_inlay_hint_offset(bufnr, lnum, col)
   return offset
 end
 
-M.setup = function(client, buffer)
-  config()
-  mappings(client, buffer)
-
+M.setup = function()
   vim.diagnostic.handlers.virtual_lines = {
     show = function(namespace, bufnr, diagnostics, opts)
       if vim.bo[bufnr].filetype == 'lazy' then return end
