@@ -37,16 +37,22 @@ local function get_inlay_hint_offset(bufnr, lnum, col)
     )
     for _, extmark in ipairs(extmarks) do
       if extmark[3] < col and extmark[4].virt_text then
+        -- Игнорируем codelens
+        if
+          extmark[4].virt_text[1]
+          and extmark[4].virt_text[1][2] == 'LspCodeLens'
+        then
+          goto continue
+        end
         for _, text in ipairs(extmark[4].virt_text) do
           offset = offset + vim.fn.strdisplaywidth(text[1])
         end
       end
+      ::continue::
     end
   end
   return offset
 end
-
--- M.mappings = function(client, buffer) mappings(client, buffer) end
 
 M.setup = function(client, buffer)
   config()
